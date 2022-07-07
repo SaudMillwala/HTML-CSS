@@ -1,0 +1,3 @@
+More sophisticated computer-assisted instruction systems monitor the student’s performance over a period of time. The decision to begin a new topic is often based on the student’s success with previous topics. Modify the program in Exercise 9.23 to count the number of correct and
+incorrect responses typed by the student. After the student answers 10 questions, your program
+should calculate the percentage of correct responses. If the percentage is lower than 75 percent, display Please ask your instructor for extra help, and reset the quiz so another student can try it.

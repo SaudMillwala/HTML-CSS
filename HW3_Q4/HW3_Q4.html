@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+  <title>HW3_Q4</title>
+</head>
+
+<body>
+    <div id = "message"></div>
+</body>
+
+  <script>
+      var number = (prompt('Enter 4-digit number to decrypt'));
+      var digits = [parseInt(number[0]), parseInt(number[1]), parseInt(number[2]), parseInt(number[3])];
+
+      var temp = digits[0];
+      digits[0] = digits[2];
+      digits[2] = temp;
+
+      var temp = digits[1];
+      digits[1] = digits[3];
+      digits[3] = temp;
+
+      for(var i = 0; i < 4; i++)
+      {
+          digits[i] = (digits[i] + 3) % 10;
+      }
+
+      document.getElementById("message").innerHTML = "Decrypted Numbers: " + digits[0] + " " + digits[1] + " " + digits[2] + " " + digits[3];
+  </script>

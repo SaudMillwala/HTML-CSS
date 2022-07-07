@@ -1,0 +1,39 @@
+<!doctype html>
+
+<head>
+  <title>HW2_Q12</title>
+
+  <script>
+    function multipleCheck()
+    {
+      var numOne = document.getElementById("firstNum").value;
+      var numTwo = document.getElementById("secondNum").value;
+      var remainderCheck;
+
+      if(!(isNaN(numOne) || isNaN(numTwo)))
+      {
+        remainderCheck = numTwo % numOne;
+        if (remainderCheck == 0)
+        {
+          document.getElementById("output").innerHTML = "First number is a multiple of the second number";
+        }
+        else
+        {
+          document.getElementById("output").innerHTML = "First number is not a multiple of the second number";
+        }
+      }
+      else
+      {
+        document.getElementById("output").innerHTML = "Only numbers can be inputted. Try Again";
+      }
+    }
+  </script>
+</head>
+<body>
+<form>
+  1st Number: <input type = "text" id = "firstNum" /><br>
+  2nd Number: <input type = "text" id = "secondNum" /><br>
+  <input type = "button" onClick = "multipleCheck()" Value = "Multiple Check" />
+</form>
+<span id = "output"></span>
+</body>

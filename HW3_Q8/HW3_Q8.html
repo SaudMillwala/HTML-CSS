@@ -1,0 +1,57 @@
+<!doctype html>
+<head>
+  <title>HW3_Q8</title>
+</head>
+
+<body>
+    <p> How much is
+      <span id="num1" value = Question()></span>
+       multiplied by
+      <span id="num2"></span> ?
+    </p>
+
+    <input type="number"  id = "userResult"></input>
+
+    <button onclick="checkResult()">Check answer</button>
+
+    <p id = "afterCheck"></p>
+
+ <script>
+
+     document.getElementById("num1").innerHTML = Math.floor((Math.random() * 10) + 1);
+     document.getElementById("num2").innerHTML = Math.floor((Math.random() * 10) + 1);
+
+    function getnewquestion()
+    {
+     document.getElementById("num1").innerHTML = Math.floor((Math.random() * 10) + 1);
+     document.getElementById("num2").innerHTML = Math.floor((Math.random() * 10) + 1);
+    }
+
+    function checkResult()
+    {
+      var a = document.getElementById("num1").innerText;
+      var b = document.getElementById("num2").innerText;
+
+      var c = a * b;
+
+      var userResult = document.getElementById("userResult").value;
+
+      if(c == userResult)
+      {
+         document.getElementById("afterCheck").innerHTML = "Very Good";
+
+         setTimeout(function()
+         {
+             getnewquestion();
+             document.getElementById("userResult").value = "";
+             document.getElementById("afterCheck").innerHTML = "";
+             }, 1000);
+         }
+      else
+      {
+        document.getElementById("afterCheck").innerHTML = "No, please try again.";
+      }
+    }
+ </script>
+
+</body>

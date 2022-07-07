@@ -1,0 +1,1 @@
+(Animation) Create an infinite animation of an element moving in a square pattern.

@@ -1,0 +1,59 @@
+<!doctype html>
+<head>
+  <title>HW3_Q9</title>
+</head>
+
+<body>
+    <p> How much is
+      <span id="num1" value = Question()></span>
+       multiplied
+      <span id="num2"></span> ?
+    </p>
+
+    <input type="number"  id = "userResult"></input>
+
+    <button onclick="checkanswer()">Check answer</button>
+
+    <p id = "aftercheck"></p>
+
+    <script>
+         document.getElementById("num1").innerHTML = Math.floor((Math.random() * 10) + 1);
+         document.getElementById("num2").innerHTML = Math.floor((Math.random() * 10) + 1);
+
+        function getnewquestion()
+        {
+         document.getElementById("num1").innerHTML = Math.floor((Math.random() * 10) + 1);
+         document.getElementById("num2").innerHTML = Math.floor((Math.random() * 10) + 1);
+        }
+
+        function checkanswer()
+        {
+          var a = document.getElementById("num1").innerText;
+          var b = document.getElementById("num2").innerText;
+          var c = a * b;
+
+          var goodcomments = ["Very good!","Excellent!","Nice work!"," Keep up the good work!"];
+          var badcomments = ["No. Please try again."," Wrong. Try once more."," Don't give up!"," No. Keep trying"];
+          
+          var userResult = document.getElementById("userResult").value;
+          var index = Math.floor((Math.random() * 3));
+
+
+          if(c == userResult)
+          {
+             document.getElementById("aftercheck").innerHTML = goodcomments[index];
+             setTimeout(function()
+             {
+                 getnewquestion();
+                 document.getElementById("userResult").value = "";
+                 document.getElementById("aftercheck").innerHTML = "";
+                 }, 1000);
+              }
+          else
+          {
+            document.getElementById("aftercheck").innerHTML = badcomments[index];
+          }
+        }
+  </script>
+
+</body>

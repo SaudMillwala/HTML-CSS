@@ -1,0 +1,1 @@
+Write a script that reads in two integers and determines and outputs HTML5 text that displays whether the first is a multiple of the second. [Hint: Use the remainder operator.]

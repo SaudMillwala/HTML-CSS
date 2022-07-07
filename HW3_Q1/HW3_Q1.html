@@ -1,0 +1,28 @@
+<!doctype html>
+
+<head>
+
+  <title>HW3_Q1</title>
+
+  <style>
+    
+table {
+  
+  text-align: center;
+}
+
+
+  </style>
+
+  <script>
+    var start = 0;
+    document.write('<table border="1" cellspacing="0">');
+    document.write("<tr> <td>N</td> <td>10*N</td> <td>100*N</td> <td>1000*N</td> </tr>");
+
+    for(start=1;start<10;start++)
+    {
+      document.write("<tr></td><td>"+ 1 * start + "</td><td>" + 10*start + "</td><td>" + 100 * start + "</td><td>"+ 1000 * start + "</td></tr>");
+    }
+    document.write("</table>");
+  </script>
+</head>

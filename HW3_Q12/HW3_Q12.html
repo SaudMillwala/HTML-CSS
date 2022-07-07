@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+  <title>HW3_Q12</title>
+
+  <script>
+
+
+    var total = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var side1;
+    var side2;
+
+    for (var x = 1; x <= 36000; x++)
+    {
+      side1 = DiceRoll();
+      side2 = DiceRoll();
+      ++total[side1 + side2];
+    }
+    resultOutput();
+
+    function DiceRoll()
+    {
+      return Math.floor(1 + Math.random() * 6);
+    }
+
+    function resultOutput()
+    {
+      document.write( "<table border = \"1\">" );
+
+      document.write
+      (
+      "<tr><th width = '100'>Sum of Dice" +
+      "<th width = \"200\">Total Times Rolled</tr>"
+      );
+
+      for ( var i = 2; i < total.length; i++ )
+      {
+        document.write( "<tr> <td>" + i + "<td>" + total[ i ] + "</tr>" );
+      }
+
+      document.write( "</table>" );
+    }
+
+  </script>
+</head>

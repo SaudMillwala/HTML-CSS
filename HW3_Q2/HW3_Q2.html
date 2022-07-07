@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+  <title>HW3_Q2</title>
+
+  <style>
+    
+
+  </style>
+
+  <script>
+    function Palindrome()
+    {
+      var Sequence = prompt("please enter a 5 digit number sequence to check whether it is palindrome or not: ", "");
+      var palindrome = new Array();
+
+      while(Sequence.length !=5)
+      {
+        alert("you didn't enter a 5 digit number sequence, please enter a number sequence that is 5 digits long");
+        Sequence = prompt("please enter a 5 digit number sequence to check whether it is palindrome or not: ", "");
+      }
+
+      for(var i=0; i<=Sequence.length-1 ;i++)
+      {
+      palindrome[i] = Sequence.charAt(i);
+      }
+
+      if(palindrome[0] == palindrome[4])
+      {
+        if(palindrome[1] == palindrome[3])
+        {
+          document.write("The number sequence you entered is:"+Sequence+".");
+          document.write("<br> The number sequence "+Sequence+" is a palindrome");
+        }
+      }
+      else
+      {
+        document.write("The number sequence you entered is:"+Sequence+".");
+        document.write("<br> The number sequence "+Sequence+" is not a Palindrome");
+      }
+    }
+  </script>
+</head>
+
+<body onload="Palindrome()">
+  <h1> Palindrome Checker!</h1>
+</body>

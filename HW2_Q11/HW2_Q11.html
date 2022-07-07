@@ -1,0 +1,31 @@
+<!doctype html>
+<head>
+  <title>H2_Q11</title>
+</head>
+
+<body>
+  <script>
+    function CalculateArea()
+    {
+      var Radius = document.Form1.radiusVal.value;
+      var Diameter = 2 * Radius;
+      var Circumference = (2 * Radius * Math.PI);
+      var Area = (Radius * Radius * Math.PI);
+
+      //toFixed(x): round to decimal x
+      document.write("<center> <b> <P>Diameter of Circle:" +Diameter.toFixed(2) + "</p> </b> </center>");
+      document.write("<center> <b> <P>Area of Circle:" + Circumference.toFixed(2)+ "</p> </b> </center>");
+      document.write("<center> <b> <P>Circumference of Circle:" + Area.toFixed(2) + "</p> </b> </center>");
+    }
+  </script>
+
+  <form name = Form1>
+    <center>
+      <b>Enter the Radius of the Circle:</b>
+      <input type = "text" name = "radiusVal" size = 25>
+    </center>
+    <br>
+
+    <center> <input type = "button" value = "Calculate" onClick="CalculateArea();"> </center>
+  </form>
+</body>

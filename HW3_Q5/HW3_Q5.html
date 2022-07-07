@@ -1,0 +1,32 @@
+<!doctype html>
+<head>
+  <title>HW3_Q5</title>
+</head>
+
+<body>
+  <script>
+
+    for(var i = 1; i <= 5; i++)
+    {
+      var h = parseInt(prompt("Enter the number between 1 and 30: "));
+      var j = 1;
+
+      if (h > 30)
+      {
+        h = 30;
+      }
+
+      else if (h < 1)
+      {
+        h = 1;
+      }
+      
+      for(j; j <= h; j++)
+      {
+        document.write("*");
+      }
+      document.write("<br>");
+    }
+
+  </script>
+</body>

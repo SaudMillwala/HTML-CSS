@@ -1,0 +1,169 @@
+<!doctype html>
+<head>
+  <title>HW3_Q13</title>
+
+<style>
+
+
+  table
+  {
+    width:5 em
+  }
+  th
+  {
+    text-align: center
+  }
+</style>
+
+  <script>
+
+    var Hposition = 1;
+    var Tposition = 1;
+    var Track = new Array (70);
+
+    var intervalId;
+    raceCount = 0;
+
+    for (var i = 0;i < Track.length; i++)
+      Track[i] = i;
+      arrayOutput(Track);
+
+    function arrayOutput(theArray)
+    {
+      document.writeln("<table border = \"1\"");
+      document.writeln("<tbody><tr>");
+      var toPrint = "&nbsp;";
+
+      for (var i = 1; i <= theArray.length; i++)
+      {
+        toPrint = "&nbsp;";
+        if (i == Tposition) toPrint = "T";
+        if (i == Hposition) toPrint = "H";
+        if ((i == Tposition) && (i == Hposition)) toPrint = "B";
+        document.writeln("<td>" + toPrint + "</td>");
+      }
+
+        document.writeln("</tr></tbody></table>");
+      }
+
+      function clockUpdate()
+      {
+
+        moveTposition();
+        moveHposition();
+
+        if (Tposition > 70)
+        {
+          Tposition = 70;
+        }
+
+        if (Hposition > 70)
+        {
+          Hposition = 70;
+        }
+
+        arrayOutput(Track);
+
+        if ((Hposition == 70) || (Tposition == 70))
+          raceEnds();
+        else
+          intervalId = window.setInterval(clockUpdate(), 1000);
+    }
+
+    function raceStarts()
+    {
+      document.write("WHO WILL WIN? The Tortoise Or The Hare?!!!!!<br/>");
+      arrayOutput(Track);
+
+      intervalId = window.setInterval(clockUpdate(), 1000);
+    }
+
+    function moveTposition()
+    {
+      i = Math.floor( Math.random() * 11);
+      if ((i >= 1) && (i <= 5))
+      {
+        Tposition = Tposition + 3;
+      }
+
+      if ((i >= 6) && (i <= 7))
+      {
+        Tposition = Tposition - 6;
+      }
+
+      if ((i >= 8) && (i <= 10))
+      {
+        Tposition = Tposition + 1;
+      }
+
+      if (Tposition < 1)
+      {
+        Tposition = 1;
+      }
+
+    }
+
+    function moveHposition()
+    {
+      i = Math.floor(Math.random() * 11);
+
+      if ((i >= 1) && (i <= 2))
+      {
+        Hposition  = Hposition + 0;
+      }
+
+      if ((i >= 3) && (i <= 4))
+      {
+        Hposition = Hposition + 9;
+      }
+
+      if (5 == i)
+      {
+        Hposition = Hposition - 12;
+      }
+
+      if ((i >= 7) && (i <= 8))
+      {
+        Hposition = Hposition + 1;
+      }
+
+      if ((i >= 9) && (i <= 10))
+      {
+        Hposition = Hposition - 2;
+      }
+
+      if (Hposition < 1)
+      {
+        Hposition = 1;
+      }
+    }
+
+    function raceEnds()
+    {
+      clearInterval(intervalId);
+      if ((Tposition == 70 - 1) && (Hposition == 70 - 1))
+      {
+        document.write("<br/><br/><b>It's a tie.","The underdog wins</b>");
+      }
+      else
+      {
+        if (Tposition >= 69)
+        {
+        Tposition = 70 - 1;
+        document.write("<br/><br/><b>Tortoise wins!!! Yay!!! :D </b>");
+        }
+        if (Hposition >= 69)
+        {
+          Hposition = 70 - 1;
+          document.write("<br/><br/><b>Hare wins. :( </b>");
+        }
+      }
+    }
+
+  </script>
+</head>
+
+<body onload="raceStarts();">
+  raceStarts
+  <label id="results">
+</body>

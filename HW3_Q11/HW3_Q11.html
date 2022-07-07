@@ -1,0 +1,174 @@
+<!doctype html>
+<head>
+  <title>HW3_Q11</title>
+</head>
+
+<body>
+  <form name="form" onsubmit="return getNewQuestion() ">
+    <label for = "grade"> Choose Grade Level: </label>
+    <select name="grade level capacity" id = "gradeSelect">
+      <option value="10">1st grade </option>
+      <option value="100">2nd grade</option>
+      <option value="1000">3rd grade</option>
+    </select>
+
+    <label for = "arithmetic"> Choose Arithmetic Operation: </label>
+
+    <select name="arithmetic" id="arithmetic">
+      <option value="1">addition</option>
+      <option value="2">subtraction</option>
+      <option value="3">multiplication</option>
+      <option value="4">division</option>
+      <option value="5">intermixed</option>
+    </select>
+
+    <button onClick="">Apply Operation</button>
+
+  </form>
+
+  <p> How Much is
+    <span id="num1" value = question()></span>
+    <span id=operation></span>
+    <span id="num2"></span> ?
+  </p>
+
+  <input type="number" id = "userResult"></input>
+
+  <button onclick="checkResult()">Check answer</button>
+
+  <p id = "afterCheck"></p>
+
+  <script>
+
+    var difficultyVal;
+    var operationType;
+    var ran;
+
+    var correctAmount = 0;
+    var wrongAmount = 0;
+    var totalAmount = 10;
+
+    function getNewQuestion()
+    {
+    difficultyVal = parseInt(document.getElementById('gradeSelect').value);
+    operationType = parseInt(document.getElementById('arithmetic').value);
+
+
+    var operationdisplay;
+    switch(operationType)
+    {
+       case 1:
+           operationdisplay='+';
+           break;
+       case 2:
+           operationdisplay='-';
+           break;
+       case 3:
+           operationdisplay='*';
+           break
+       case 4:
+           operationdisplay='/';
+           break;
+       case 5:
+               ran=Math.floor((Math.random() * 3));
+               switch(ran)
+               {
+                 case 0:
+                     operationdisplay='+';
+                     break;
+                 case 1:
+                     operationdisplay='-';
+                     break;
+                 case 2:
+                     operationdisplay='*';
+                     break
+                 case 3:
+                     operationdisplay='/';
+                     break;
+               }
+    }
+
+    document.getElementById("operation").innerHTML = operationdisplay; //operationdisplay assign to inner html to display in the page
+    document.getElementById("num1").innerHTML = Math.floor((Math.random() * difficultyVal) + 1); //random number
+    document.getElementById("num2").innerHTML = Math.floor((Math.random() * difficultyVal) + 1); //random number
+    return false;
+    }
+
+    function checkResult()
+    {
+    var a = parseInt(document.getElementById("num1").innerText);
+    var b = parseInt(document.getElementById("num2").innerText);
+    var c;
+
+    var goodComments = ["Very good!","Excellent!","Nice work!"," Keep up the good work!"];
+    var badComments = ["No. Please try again."," Wrong. Try once more."," Don't give up!"," No. Keep trying"];
+
+    switch(operationType){ //switch the case to perform operation dependent to user selected
+       case 1:
+           c=a+b;
+           break;
+       case 2:
+           c=a-b;
+           break;
+       case 3:
+           c=a*b;
+           break
+       case 4:
+           c=a/b;
+           break;
+       case 5:
+           switch(ran)
+           {
+             case 0:
+                 c=a+b;
+                 break;
+             case 1:
+                 c=a-b;
+                 break;
+             case 2:
+                 c=a*b;
+                 break
+             case 3:
+                 c=a/b;
+                 break;
+           }
+    }
+    var userResult = document.getElementById("userResult").value;
+
+
+    var index = Math.floor((Math.random() * 3));
+
+    if(c == userResult)
+    {
+      document.getElementById("afterCheck").innerHTML = goodComments[index];
+      correctAmount++;
+      var interval=setTimeout(function()
+      {
+      getNewQuestion();
+      document.getElementById("userResult").value = "";
+      document.getElementById("afterCheck").innerHTML = "";
+      }, 1500);
+    }
+    else
+    {
+      document.getElementById("afterCheck").innerHTML = badComments[index];
+      wrongAmount++;
+    }
+
+    if (correctAmount + wrongAmount == totalAmount)
+    {
+      clearsetTimeout(interval); //Stops generating questions
+      var percentScore = (correctAmount / totalAmount) * 100;
+      document.getElementById("afterCheck").innerHTML = percentScore;
+      if (percentScore < 75)
+      {
+        document.getElementById("afterCheck").innerHTML = "please ask your instructor for help";
+      }
+
+      correctAmount = 0;
+      wrongAmount = 0;
+    }
+  }
+  </script>
+
+</body>

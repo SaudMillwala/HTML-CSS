@@ -1,0 +1,27 @@
+<!doctype html>
+    <head>
+      <title>HW3_Q3</title>
+    </head>
+
+    <body>
+        <div id = "message"></div>
+    </body>
+
+    <script>
+        var number = (prompt('Enter 4-digit number to encrypt'));
+        var digits = [parseInt(number[0]), parseInt(number[1]), parseInt(number[2]), parseInt(number[3])];
+
+        for(var i = 0; i < 4; i++)
+        {
+            digits[i] = (digits[i] + 7) % 10;
+        }
+
+        var temp = digits[0];
+        digits[0] = digits[2];
+        digits[2] = temp;
+        var temp = digits[1];
+        digits[1] = digits[3];
+        digits[3] = temp;
+
+        document.getElementById("message").innerHTML = "Encrypted Numbers: " + digits[0] + " " + digits[1] + " " + digits[2] + " " + digits[3];
+    </script>
