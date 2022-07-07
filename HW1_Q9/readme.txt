@@ -1,0 +1,3 @@
+Creating an Autocomplete Form) Create a simple search form using a search input element in which the user can enter a search query. Using the Firefox web browser, test the form by
+entering January and submitting the form. Then enter a J in the input element to see previous entries that started with J—January should be displayed below the input element. Enter June and submit the form again. Now enter a J in the input element to see previous entries that started with J—
+January and June should be displayed below the input element. Try this with your own search queries as well.

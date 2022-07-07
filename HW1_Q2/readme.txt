@@ -1,0 +1,1 @@
+Create an HTML5 document that uses an image as an e-mail link. Use attribute alt to provide a description of the image and link.

@@ -1,0 +1,2 @@
+(Website Registration Form with Optional Survey) Create a website registration form to obtain a user’s first name, last name and e-mail address. In addition, include an optional survey question that asks the user’s year in college (e.g., Freshman). Place the optional survey question in a
+details element that the user can expand to see the question.

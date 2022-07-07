@@ -1,0 +1,1 @@
+Write an HTML5 document that produces the table shown in Fig. 2.19.
